@@ -22,7 +22,8 @@ module FactoryGithubUtilities
       @teams ||= @api.client.orgs.teams.list(org: @org)
     end
 
-    # Select the team matching @team_name from the available teams in the Github Org
+    # Select the team matching @team_name from the available teams
+    # in the Github Org
     def team
       @team ||= teams.select { |team| team.name == @team_name }.first
     end
@@ -37,7 +38,8 @@ module FactoryGithubUtilities
       @api.client.users.keys.list(user: username).body
     end
 
-    # Return array of keys and user emails
+    # Return array of keys and user emails e.g.
+    # [[key, email], [key, email], ...]
     def keys
       authorized_keys = []
       if team.present?
@@ -64,6 +66,11 @@ module FactoryGithubUtilities
       authorized_keys
     end
 
+    # Return keys and usernames in a flat array for easy insertion 
+    # into authorized_keys files e.g.
+    # ['key username', 'key username' ...]
+    # You can call #join("\n") after this to turn the array into 
+    # a valid string for authorized_keys
     def keys_and_usernames
       keys.map do |key|
         [key[0], key[1]].join(' ')
