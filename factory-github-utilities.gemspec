@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov-rcov'
 
   spec.add_dependency 'github_api'
-  spec.add_dependency 'activesupport', '>= 4.2.6'
+  spec.add_dependency 'activesupport', '>= 4.2.0'
 end
