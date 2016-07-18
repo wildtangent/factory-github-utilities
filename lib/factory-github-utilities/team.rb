@@ -63,5 +63,11 @@ module FactoryGithubUtilities
       end
       authorized_keys
     end
+
+    def keys_and_usernames
+      keys.map do |key|
+        [key[0], key[1]].join(' ')
+      end
+    end
   end
 end
