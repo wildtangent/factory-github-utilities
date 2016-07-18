@@ -1,5 +1,5 @@
 require 'spec_helper'
-# require 'factory-github-utilities/team'
+require 'factory-github-utilities/team'
 
 describe FactoryGithubUtilities::Team do
   context 'with valid Github credentials' do
